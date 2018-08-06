@@ -9,7 +9,8 @@ import { CompressorService } from './compressor.service'
 import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'compressor', component: CompressorComponent }
+  { path: 'compressor', component: CompressorComponent },
+  { path: '*', redirectTo:'',pathMatch: 'full'}
 ]
 @NgModule({
   declarations: [

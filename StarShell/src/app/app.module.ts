@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderModule } from './header/header.module'
+import { HeaderModule } from './header/header.module';
+import { FormsModule ,ReactiveFormsModule}   from '@angular/forms';
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 @NgModule({
   declarations: [
@@ -17,8 +18,10 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     HeaderModule,
     rootRouting,
     BrowserAnimationsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
+  exports:[FormsModule,
+    ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
