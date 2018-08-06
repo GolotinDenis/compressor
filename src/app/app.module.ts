@@ -10,7 +10,7 @@ import { CompressorService } from './compressor.service';
 import { LoginComponent } from './login/login.component';
 import { CompressorComponent } from './compressor/compressor.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'compressor', component: CompressorComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
