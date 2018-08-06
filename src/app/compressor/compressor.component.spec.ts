@@ -27,18 +27,16 @@ describe('CompressorComponent', () => {
   });
 
   it('compression', async(() => {
-    const fixture = TestBed.createComponent(CompressorComponent);
     fixture.detectChanges();
     component.inputString = 'aaaabbcddd';
     component.compress();
     expect(component.compressed).toBe('a4bbcd3');
   }));
 
-  it('decompression', async(()=>{
-    const fixture = TestBed.createComponent(CompressorComponent);
+  it('decompression', async(() => {
     fixture.detectChanges();
     component.compressed = 'a4bbcd3';
     component.decompress();
     expect(component.decompressed).toBe('aaaabbcddd');
-  }))
+  }));
 });
