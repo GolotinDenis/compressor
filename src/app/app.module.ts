@@ -10,10 +10,10 @@ import { CompressorService } from './compressor.service';
 import { LoginComponent } from './login/login.component';
 import { CompressorComponent } from './compressor/compressor.component';
 
-export const routes: Routes = [
-  { path: '', component: LoginComponent },
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'compressor', component: CompressorComponent },
-  { path: '*', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
