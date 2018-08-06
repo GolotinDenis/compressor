@@ -9,7 +9,7 @@ describe('AuthService', () => {
       imports: [
         HttpClientModule,
       ],
-      providers: [AuthService]
+      providers: [AuthService],
     });
   });
 

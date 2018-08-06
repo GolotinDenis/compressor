@@ -9,7 +9,7 @@ export class CompressorService {
     let result = plaint;
     alphabet.map((flag) => {
       const reg = RegExp(`${flag}*`, 'ig');
-      result = result.replace(reg, (chortString) => {
+      result = result.replace(reg, (chortString: string) => {
         if (chortString.length > 2) {
           return chortString[0] + chortString.length;
         }
@@ -24,9 +24,9 @@ export class CompressorService {
     let result = compressString;
     alphabet.map((flag) => {
       const reg = RegExp(`${flag}[0-9]+`, 'ig');
-      result = result.replace(reg, (chortString: String) => {
-        return chortString[0].repeat(Number(chortString.substr(1)));
-      });
+      result = result.replace(reg, (chortString: string) =>
+        chortString[0].repeat(Number(chortString.substr(1)))
+      );
     });
     return result;
   }

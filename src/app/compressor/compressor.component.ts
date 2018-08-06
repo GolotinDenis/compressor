@@ -8,31 +8,34 @@ import { CompressorService } from '../compressor.service';
   styleUrls: ['./compressor.component.css'],
 })
 export class CompressorComponent {
-  compressed: string;
-  decompressed: string;
-  oldInputString: string;
-  inputString: string;
+  private oldInputString: string;
+
+  public compressed: string;
+  public decompressed: string;
+  public inputString: string;
 
   constructor(private compressorService: CompressorService) { }
 
-  inputOnKeyDown(event: KeyboardEvent): void {
+  public inputOnKeyDown(event: KeyboardEvent): void {
     const target = event.target as HTMLInputElement;
     if (/^[abcdef]*$/g.test(target.value)) {
       this.oldInputString = target.value;
     }
   }
 
-  inputOnChange(event: Event): void {
+  public inputOnChange(event: Event): void {
     const target = event.target as HTMLInputElement;
     if (!(/^[abcdef]*$/g.test(this.inputString))) {
       target.value = this.oldInputString;
       this.inputString = this.oldInputString;
     }
   }
-  compress() {
+
+  public compress() {
     this.compressed = this.compressorService.compress(this.inputString);
   }
-  decompress() {
+
+  public decompress() {
     this.decompressed = this.compressorService.decompress(this.compressed);
   }
 }
