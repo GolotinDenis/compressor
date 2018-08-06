@@ -10,9 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { CompressorComponent } from './compressor/compressor.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'compressor', component: CompressorComponent },
-  { path: '*', redirectTo:'',pathMatch: 'full'}
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
