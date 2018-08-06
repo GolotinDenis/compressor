@@ -13,7 +13,7 @@ import { CompressorComponent } from './compressor/compressor.component';
 export const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'compressor', component: CompressorComponent },
-  { path: '*', redirectTo:'',pathMatch: 'full'}
+  { path: '*', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
