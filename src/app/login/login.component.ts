@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
+import { error } from 'util';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   public email: string;
   public password: string;
+  public error: boolean;
 
   constructor(
     private auth: AuthService,
@@ -19,15 +21,20 @@ export class LoginComponent {
 
   onSubmit() {
     if (!this.email || !this.password) {
-      return ;
+      return;
     }
     this.auth.login(this.email, this.password)
-      .subscribe((result: any) => {
-        if (result.status === 'ok') {
-          this.router.navigate(['/compressor']);
-        } else {
-          console.error('auth error');
+      .subscribe(
+        (result: any) => {
+          if (result.status === 'ok') {
+            this.router.navigate(['/compressor']);
+          } else {
+            this.error = true;
+          }
+        },
+        ( errorResponse ) => {
+          this.error = errorResponse != null;
         }
-      });
+      );
   }
 }
