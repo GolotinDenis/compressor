@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router} from '@angular/router';
-
-import { CompressorService } from '../compressor.service';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,16 +11,15 @@ export class LoginComponent {
   public password: string;
 
   constructor(
-    private compressor: CompressorService,
-    private router: Router
+    private auth: AuthService, 
+    private router:Router
   ) { }
 
   onSubmit() {
     if (!this.email || !this.password) {
       return ;
     }
-    this.compressor
-      .login(this.email, this.password)
+    this.auth.login(this.email,this.password)
       .subscribe((result: any) => {
         if (result.status === 'ok') {
           this.router.navigate(['/compressor']);
